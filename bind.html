@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+	<head>
+		<title>bind</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<script>
+			Function.prototype.bind = function(that){
+				var _args = Array.prototype.slice.call(arguments, 1);
+				var _othis = this;
+				return function(){
+					var _args1 = Array.prototype.slice.call(arguments);
+					_args = _args.concat(_args1);
+					_othis.apply(that, _args);
+				};     					
+			};
+			function test(){
+			    var _args = Array.prototype.slice.call(arguments);
+                console.log(_args);				
+			};
+			var obj = {};
+			test.bind(obj,1,2)(4,5);
+		</script>
+	</body>
+</html>
