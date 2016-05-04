@@ -5,23 +5,23 @@
 	</head>
 	<body>
 		<script>
-		    var add = function(a){
-			    if(typeof a !== 'number'){
-				    throw {
-					    name: 'TypeError',
+			var add = function(a){
+				if(typeof a !== 'number'){
+					throw {
+						name: 'TypeError',
 						message: 'add needs numbers'
 					}
 				}
 				return a;
 			};
-            var try_it = function(){
-			    try{
-				    add('seven');
+            		var try_it = function(){
+				try{
+					add('seven');
 				}catch(e){
-				    console.error(e.message);
+					console.error(e.message);
 				}
 			};
-            try_it();			
+            		try_it();			
 		</script>
 	</body>
 </html>
