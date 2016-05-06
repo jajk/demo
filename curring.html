@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+	<head>
+		<title>Currying</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+	    <script>
+		/*
+		var add = function(){
+		    var _this = this,
+			_args = arguments;
+			return function(){
+				if(!arguments.length){
+					var sum = 0;
+					for(var i = 0,c; c = _args[i++];){
+					    sum+=c;
+					}
+					console.log(sum);
+				}
+				else{
+					Array.prototype.push.apply(_args, arguments);
+					return arguments.callee;
+				}
+			};
+		}; 
+    		add(1)(2)(3)(4)();
+		*/
+        	var curry = function(fn){
+				var _args = [];
+				return function(){
+					if(arguments.length == 0){
+						fn.apply(this, _args);
+						_args = [];
+					}
+					Array.prototype.push.apply(_args, arguments);
+					return arguments.callee;
+				};
+			};	
+        	var add = curry(function(){
+				var sum = 0,
+				args = Array.prototype.slice.call(arguments),
+				i = args.length;
+				while( i-- ){
+					sum+=args[i];
+				}
+				console.log(sum);
+			});
+		add(1)(2)(3)(4)();
+		add(1)();
+			
+            </script>
+	</body>
+</html>
