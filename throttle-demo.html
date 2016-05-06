@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<head>
+		<title>throttle</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<script>
+			 /*
+			n = 0;
+			function resizehandler(){
+			    console.log(new Date().getTime());
+				console.log(++n);
+			}
+			function throttle(method, context){
+			    clearTimeout(method.tId);
+				method.tId = setTimeout(function(){
+				    method.call(context);
+				},500);
+			}
+			window.onresize = function(){
+			    throttle(resizehandler, window);
+			};
+			*/
+
+			n = 0;
+			function resizehandler(){
+			    console.log(new Date().getTime());
+				console.log(++n);
+			};
+			function throttle(method, delay){
+			    var timer = null;
+				return function(){
+				    	var context = this;
+                    			var args = arguments;
+                			clearTimeout(timer);
+                    			timer = setTimeout(function(){
+					    method.apply(context,args);
+					},delay);					
+				};
+			}
+			window.onresize = throttle(resizehandler, 500);
+			
+		</script>
+	</body>
+</html>
