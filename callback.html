@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 	<head>
-		<title>css</title>
+		<title>callback</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	</head>
 	<body>
 		<script>
-		    function async(arg, callback) {
+			function async(arg, callback) {
 			    console.log('参数为 ' + arg +' , 1秒后返回结果');
 			    setTimeout(function() { callback(arg * 2); }, 1000);
 			};
@@ -13,8 +13,8 @@
 			    console.log('完成：'+value);
 			}
 			/*
-            async(1, function(value){
-			    async(value, function(value){
+            		async(1, function(value){
+				async(value, function(value){
 				    async(value, function(value){
 					    async(value, function(value){
 						    async(value, function(value){
@@ -24,12 +24,12 @@
 					});
 				});
 			});
-		    */
+			*/
 			/*
 			//串行执行
-            var items = [1, 2, 3, 4, 5, 6];
-            var results = [];
-            function series(item){
+            		var items = [1, 2, 3, 4, 5, 6];
+        		 var results = [];
+            		function series(item){
 			    if(item){
 				    async(item, function(result){
 					    results.push(result);
@@ -39,8 +39,8 @@
 				    return final(results);
 				}
 			};
-            series(items.shift());	
-            //并行执行			
+            		series(items.shift());	
+            		//并行执行			
 			var items = [1, 2, 3, 4, 5, 6];
 			var results = [];
 			items.forEach(function(item){
