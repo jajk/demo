@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+	<head>
+		<title>JavaScriptProfiling</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<script>
+            /*
+			var start = new Date(),
+			    count = 10000,
+				i, element, time;
+			for(i = 0; i < count; i++){
+			    element = document.createElement('div');
+			};
+			time = new Date() - start;
+			alert('created '+count+'in '+time+'ms');
+			
+			start = new Date();
+			for(i = 0; i < count; i++){
+			    element = element.cloneNode(false);
+			};
+			time = new Date() - start;
+			alert('created '+count+'in '+time+'ms');
+			*/
+			var Timer = {
+			    _data: {},
+				start: function(key){
+				    Timer._data[key] = new Date();
+				},
+				stop: function(key){
+				    var time = Timer._data[key];
+					if(time){
+					    Timer._data[key] = new Date() - time;
+					}
+				},
+				getTime: function(key){
+				    return Timer._data[key];
+				}
+			};
+			var count = 10000,
+			    i, element;
+			Timer.start('createElement');
+			for(i = 0; i < count; i++){
+			    element = document.createElement('div');
+			};
+			Timer.stop('createElement');
+			alert('created '+count+'in '+Timer.getTime('createElement')+'ms');
+		</script>
+	</body>
+</html>
