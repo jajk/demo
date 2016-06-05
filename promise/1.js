@@ -5,8 +5,8 @@ Promise.prototype = {
 	resolve: function () {
 		var t,n;
 		//t && (n = t.apply(null, arguments), n instanceof Promise && (n.thens = this.thens));
-        do{
-		    t = this.thens.shift();
+        	do{
+		    	t = this.thens.shift();
 			n = null;
 			t && (n = t.apply(null, arguments));	
 		}while( t && !(n instanceof Promise) );
