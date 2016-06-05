@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<script>
-            /*闭包题
+                	/*闭包题
 			function fun(n1, n2, n3){
 			    console.log('n2: ' + n2);
 				console.log('n3: ' + n3);
@@ -21,32 +21,32 @@
 			*/
 			/*连等：A=B=C 相当于B=C; A=B;
 			var a = {n:1};
-            a.x = a = {n:2};
-            console.log(a.x);
-            */
+            		a.x = a = {n:2};
+            		console.log(a.x);
+        		 */
 			/*
 			//hoisting、new、this
-            function Foo(){
+            		function Foo(){
 			    getName = function(){alert(1);};
 				return this;
 			};
-            Foo.getName = function(){
+            		Foo.getName = function(){
 			    alert(2);
 			};
-            Foo.prototype.getName = function(){alert(3);};	
-            var getName = function(){alert(4);};
-            function getName(){alert(5);};
-            //result:
-            Foo.getName();
-            getName();
-            Foo().getName();
-            getName();
-            new Foo.getName();
-            new Foo().getName();
-            new new Foo().getName();
-            */	
-            /*bind实现
-            Function.prototype.bind = function(thisObj){
+            		Foo.prototype.getName = function(){alert(3);};	
+        	 	var getName = function(){alert(4);};
+            		function getName(){alert(5);};
+            		//result:
+        		Foo.getName();
+        	 	getName();
+            		Foo().getName();
+            		getName();
+            		new Foo.getName();
+            		new Foo().getName();
+            		new new Foo().getName();
+            		*/	
+            		/*bind实现
+            		Function.prototype.bind = function(thisObj){
 			    var fn = this;			
 				return function(){
 				    fn.apply(thisObj || this, arguments);
