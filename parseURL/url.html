@@ -5,21 +5,21 @@
     </head>
     <body>
         <script>
-            function getQueryObject(url){
-			    var search = url.substring(url.lastIndexOf("?")+1);
-				var obj = {};
-				var reg = /([^?&=]+)=([^?&=]*)/g;
-				search.replace(reg, function(rs, $1, $2){
-				    var name = decodeURIComponent($1);
-					var val = decodeURIComponent($2);
-					val = String(val);
-					obj[name] = val;
-					return rs;
-				});
-				return obj;
-			};
-			var obj = getQueryObject('www.cnblogs.com/giggle?name=Monkey&age=24');
-			console.log(obj);
+            	function getQueryObject(url){
+		    var search = url.substring(url.lastIndexOf("?")+1);
+			var obj = {};
+			var reg = /([^?&=]+)=([^?&=]*)/g;
+			search.replace(reg, function(rs, $1, $2){
+			    var name = decodeURIComponent($1);
+				var val = decodeURIComponent($2);
+				val = String(val);
+				obj[name] = val;
+				return rs;
+			});
+			return obj;
+		};
+		var obj = getQueryObject('www.cnblogs.com/giggle?name=Monkey&age=24');
+		console.log(obj);
         </script>
     </body>
 </html>
