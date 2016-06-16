@@ -10,13 +10,13 @@
 				var _othis = this;
 				return function(){
 					var _args1 = Array.prototype.slice.call(arguments);
-					_args = _args.concat(_args1);
-					_othis.apply(that, _args);
+					_args1 = _args.concat(_args1);
+					_othis.apply(that, _args1);
 				};     					
 			};
 			function test(){
 			    	var _args = Array.prototype.slice.call(arguments);
-                	    	console.log(_args);				
+                	console.log(_args);				
 			};
 			var obj = {};
 			test.bind(obj,1,2)(4,5);
